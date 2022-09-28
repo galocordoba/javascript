@@ -76,8 +76,8 @@ function mostrarProductos() {
             <div class="card-body">
                 <h5 class="card-title">${p.nombre}</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <p>${p.precio}€</p>
-                <button class="btn btn-primary" id="${p.id}">Añadir al carrito</button>
+                <p>$${p.precio}</p>
+                <button class="btn btn-primary boton" id="${p.id}">Añadir al carrito</button>
             </div>
             </div>`;
 
@@ -137,9 +137,9 @@ function mostrarCarrito() {
             <img class="card-img-top" src="${p.img}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${p.nombre}</h5>
-                <p>${p.precio}€</p>
+                <p>$${p.precio}</p>
                 <p>Cantidad: ${p.cantidad}</p>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-danger boton">Eliminar</button>
             </div>
         </div>`;
 
