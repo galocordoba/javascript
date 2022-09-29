@@ -57,7 +57,14 @@ const stock = [
   },
 ];
 
-const carrito = [];
+let carrito = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+    mostrarCarrito();
+  }
+});
 
 function mostrarProductos() {
   const shop = document.getElementById("shop");
@@ -148,6 +155,7 @@ function mostrarCarrito() {
     });
 
     carritoHTML.appendChild(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   });
 }
 
@@ -172,3 +180,11 @@ function totalFinal() {
 
   totall.innerHTML = `<h5>$ ${total}</h5> `;
 }
+
+const vaciar = document.getElementById("vaciar-carrito");
+
+vaciar.addEventListener("click", () => {
+  carrito.length = 0;
+  mostrarCarrito();
+  totalFinal();
+});
