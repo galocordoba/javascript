@@ -1,63 +1,5 @@
-const stock = [
-  {
-    id: 1,
-    nombre: "MUSCULOSA PROJET ROCK UNDER ARMOUR",
-    img: "./imgs/musculosa.jpg",
-    precio: 9999,
-    cantidad: 1,
-  },
-  {
-    id: 2,
-    nombre: "REMERA BIG AROUND RUSTY",
-    img: "./imgs/roket-over.jpg",
-    precio: 7489,
-    cantidad: 1,
-  },
-  {
-    id: 3,
-    nombre: "REMERA SIGNATURE KETTLEBELL UNDER ARMOUR",
-    img: "./imgs/over-naranja.jpg",
-    precio: 9999,
-    cantidad: 1,
-  },
-  {
-    id: 4,
-    nombre: "REMERA AEROREADY DESIGNED TO MOVE SPORT ADIDAS",
-    img: "./imgs/adidas-rayas.jpg",
-    precio: 8499,
-    cantidad: 1,
-  },
-  {
-    id: 5,
-    nombre: "CAMISETA LIVERPOOL FC NIKE",
-    img: "./imgs/liverpool.jpg",
-    precio: 16999,
-    cantidad: 1,
-  },
-  {
-    id: 6,
-    nombre: "CAMISETA REAL MADRID ADIDAS",
-    img: "./imgs/real-madrid.jpg",
-    precio: 16999,
-    cantidad: 1,
-  },
-  {
-    id: 7,
-    nombre: "CANGURO FERRARI RACE PUMA",
-    img: "./imgs/hoodi-ferrari.jpg",
-    precio: 24895,
-    cantidad: 1,
-  },
-  {
-    id: 8,
-    nombre: "BUZO ESSENTIAL BIG LOGO PUM",
-    img: "./imgs/hoodi-puma.jpg",
-    precio: 13999,
-    cantidad: 1,
-  },
-];
-
 let carrito = [];
+let [precio, img, id, cantidad, nombre] = carrito;
 
 document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("carrito")) {
@@ -82,7 +24,7 @@ function mostrarProductos() {
             <img class="card-img-top" src="${p.img}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${p.nombre}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Las prendas solo cuantan con devoluciones por errores de fabrica.</p>
                 <p>$${p.precio}</p>
                 <button class="btn btn-primary boton" id="${p.id}">Añadir al carrito</button>
             </div>
@@ -159,12 +101,10 @@ function mostrarCarrito() {
   });
 }
 
-function eliminarProducto(id) {
+function eliminarProducto() {
   carrito[id].cantidad--;
 
-  if (carrito[id].cantidad === 0) {
-    carrito.splice(id, 1);
-  }
+  carrito[id].cantidad === 0 && carrito.splice(id, 1);
 
   mostrarCarrito();
   totalFinal();
