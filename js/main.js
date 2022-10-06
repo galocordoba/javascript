@@ -56,12 +56,18 @@ function agregarProductos(id) {
 
     console.log(carrito);
   }
-
-  const alert = document.querySelector(".alert");
-  setTimeout(function () {
-    alert.classList.add("hide");
-  }, 2000);
-  alert.classList.remove("hide");
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Producto añadido al carrito!",
+    showConfirmButton: false,
+    timer: 700,
+  });
+  // const alert = document.querySelector(".alert");
+  // setTimeout(function () {
+  //   alert.classList.add("hide");
+  // }, 2000);
+  // alert.classList.remove("hide");
 
   mostrarCarrito();
   totalFinal();
